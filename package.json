@@ -1,0 +1,39 @@
+{
+  "name": "exam_system",
+  "version": "2.6.0",
+  "description": "'描述'",
+  "author": "作者",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "con.jiangkai.app",
+    "productName": "系统",
+    "artifactName": "考试系统.${ext}",
+    "publish": [{
+      "provider": "generic",
+      "url": "http://192.168.1.105:90/downLoad/"
+    }],
+    "win": {
+      "icon": "img/favicon1.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": true,
+      "deleteAppDataOnUninstall": false
+    }
+  },
+  "devDependencies": {
+    "electron": "^3.0.10",
+    "electron-builder": "^20.38.2"
+  },
+  "dependencies": {
+    "electron-updater": "^4.0.5"
+  }
+}

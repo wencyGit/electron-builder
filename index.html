@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+</head>
+
+<body>
+    <h1>3</h1>
+    <script>
+      var {ipcRenderer} = require('electron')
+       ipcRenderer.on("message", (event, text) => {
+            console.log(text);
+       });
+       ipcRenderer.on("downloadProgress", (event, progressObj)=> {
+           console.log(progressObj);
+         //  this.downloadPercent = progressObj.percent || 0;
+       });
+       ipcRenderer.on("isUpdateNow", () => {
+           ipcRenderer.send("isUpdateNow");
+       });
+      ipcRenderer.send("checkForUpdate")
+    </script>
+</body>
+
+</html>
